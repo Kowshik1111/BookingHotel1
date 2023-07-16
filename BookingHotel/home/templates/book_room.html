@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>book room</title>
+</head>
+<body>
+{% extends "base.html" %}
+
+{% block content %}
+  <h2>Book Room</h2>
+  <form method="POST">
+    {% csrf_token %}
+    <input type="text" name="name" placeholder="Name"><br>
+    <input type="text" name="phone_number" placeholder="Phone Number"><br>
+    <button type="submit">Book Room</button>
+  </form>
+{% endblock %}
+
+</body>
+</html>

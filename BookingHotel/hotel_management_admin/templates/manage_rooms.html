@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>manage rooms</title>
+</head>
+<body>
+{% extends "base.html" %}
+
+{% block content %}
+  <h2>Manage Rooms</h2>
+  <ul>
+    {% for room in rooms %}
+      <li>{{ room.room_number }}</li>
+    {% endfor %}
+  </ul>
+  <a href="{% url 'create_room' %}">Create Room</a>
+{% endblock %}
+
+</body>
+</html>

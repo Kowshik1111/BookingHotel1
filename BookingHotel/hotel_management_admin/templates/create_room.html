@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>create room</title>
+</head>
+<body>
+{% extends "base.html" %}
+
+{% block content %}
+  <h2>Create Room</h2>
+  <form method="POST">
+    {% csrf_token %}
+    <input type="text" name="room_number" placeholder="Room Number"><br>
+    <button type="submit">Create Room</button>
+  </form>
+{% endblock %}
+
+</body>
+</html>

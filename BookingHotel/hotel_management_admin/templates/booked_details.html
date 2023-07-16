@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>booked details</title>
+</head>
+<body>
+{% extends "base.html" %}
+
+{% block content %}
+  <h2>Booked Details</h2>
+  <ul>
+    {% for booking in bookings %}
+      <li>{{ booking.name }} - {{ booking.phone_number }}</li>
+      <a href="{% url 'accept_booking' booking.id %}">Accept</a>
+      <a href="{% url 'delete_booking' booking.id %}">Delete</a>
+    {% endfor %}
+  </ul>
+{% endblock %}
+
+</body>
+</html>
