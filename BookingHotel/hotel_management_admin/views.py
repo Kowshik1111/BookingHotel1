@@ -1,4 +1,4 @@
-# hotel_management_admin/views.py
+
 
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import User
@@ -29,24 +29,24 @@ def create_user(request):
     return render(request, 'create_user.html')
 
 def manage_rooms(request):
-    # Logic to manage rooms in the hotel
+
     rooms = Room.objects.all()
     return render(request, 'manage_rooms.html', {'rooms': rooms})
 
 def booked_details(request):
-    # Logic to fetch and display booked user details
+
     bookings = Booking.objects.all()
     return render(request, 'booked_details.html', {'bookings': bookings})
 
 def accept_booking(request, booking_id):
-    # Logic to accept the booked room for a user
+
     booking = Booking.objects.get(id=booking_id)
     booking.accepted = True
     booking.save()
     return redirect('booked_details')
 
 def delete_booking(request, booking_id):
-    # Logic to delete a booked room for a user
+
     booking = Booking.objects.get(id=booking_id)
     booking.delete()
     return redirect('booked_details')
@@ -54,7 +54,7 @@ def delete_booking(request, booking_id):
 def create_room(request):
     if request.method == 'POST':
         room_number = request.POST['room_number']
-        # Logic to create a new room
+     
         Room.objects.create(room_number=room_number)
         return redirect('manage_rooms')
     return render(request, 'create_room.html')
@@ -63,7 +63,7 @@ def update_room(request, room_id):
     room = Room.objects.get(id=room_id)
     if request.method == 'POST':
         room_number = request.POST['room_number']
-        # Logic to update the room
+       
         room.room_number = room_number
         room.save()
         return redirect('manage_rooms')
@@ -71,6 +71,6 @@ def update_room(request, room_id):
 
 def delete_room(request, room_id):
     room = Room.objects.get(id=room_id)
-    # Logic to delete the room
+   
     room.delete()
     return redirect('manage_rooms')
